@@ -3,11 +3,15 @@ package br.ufpb.ci.so.p20132;
 import java.io.*;
 import java.net.*;
 import java.util.StringTokenizer;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
- * Um servidor Web simples porém totalmente funcional.
- * O servidor atende apenas requisições do tipo GET ou CGI.
+ * Um servidor Web simples por√©m totalmente funcional.
+ * O servidor atende apenas requisi√ß√µes do tipo GET ou CGI.
  * @author Alexandre Duarte - alexandre@ci.ufpb.br
+ * @author Gustavo Brito - gbritosampaio@gmail.com
+ * @author Rafael Germano - rafael.germano321@gmail.com
  *
  */
 public class WebServer {
@@ -15,10 +19,25 @@ public class WebServer {
 	private ServerSocket socketEscuta;
 	
 	private static int numeroRequisicao = 0;
+	
+	private ExecutorService pool;
 
-	public WebServer( int porta) throws Exception {
+	private int nthreads, porta, bufferSize;
+	private String algoritmo;
+	
+	public WebServer( int porta, int nthreads, int bufferSize, String algoritmo) throws Exception {
+			
+		this.porta = porta;
+		this.nthreads = nthreads;
+		this.bufferSize = bufferSize;
+		this.algoritmo = algoritmo;
 		
-		socketEscuta = new ServerSocket(porta);
+		socketEscuta = new ServerSocket(this.porta);
+		
+		pool = Executors.newFixedThreadPool(this.nthreads);
+		
+		for(int i=0; i<nthreads; i++)
+			pool.submit(new WorkerThread(i));
 		
 	}
 	
@@ -33,6 +52,9 @@ public class WebServer {
 	}
 	
 	private void processaRequisicao( Socket reqSocket) throws IOException {
+		
+		Descritor d = new Descritor(reqSocket);
+		// adiciona d ao buffer
 			
 		BufferedReader doCliente = new BufferedReader(new InputStreamReader( reqSocket.getInputStream()));
 		DataOutputStream paraCliente = new DataOutputStream( reqSocket.getOutputStream());
@@ -83,7 +105,7 @@ public class WebServer {
 			
 		paraCliente.writeBytes("Content-Length " + bytes.length + "\r\n");
 			
-		//Retorno das estatísticas da requisição
+		//Retorno das estat√≠sticas da requisi√ß√£o
 		paraCliente.writeBytes("id-requisicao " + 1 + "\r\n");
 		paraCliente.writeBytes("tempo-chegada-requisicao " + 2 + "\r\n");
 		paraCliente.writeBytes("cont-requisicao-agendada " + 3 + "\r\n");
@@ -93,7 +115,7 @@ public class WebServer {
 		paraCliente.writeBytes("idade-requisicao " + 7 + "\r\n");
 		paraCliente.writeBytes("tipo-requisicao " + tipo  + "\r\n");
 			
-		//Retorno das estatísticas do thread
+		//Retorno das estat√≠sticas do thread
 		paraCliente.writeBytes("ida-thread " + 8 + "\r\n");
 		paraCliente.writeBytes("cont-thread " + 9 + "\r\n");
 			
@@ -110,9 +132,28 @@ public class WebServer {
 		
 		System.out.println( "Iniciando o servidor...");
 		
-		WebServer servidor = new WebServer(6789);		
+		int porta = 0;
+		int nthreads = 0;
+		int bufferSize = 0;
+		String algoritmo = "None";
 		
-		System.out.println( "Servidor no ar. Aguardando requisições.");
+		for(String s : argv)
+			System.out.println(s);
+		
+		try {
+			if(argv.length<4) throw new Exception();
+			porta = Integer.parseInt(argv[0]);
+			nthreads = Integer.parseInt(argv[1]);
+			bufferSize = Integer.parseInt(argv[2]);
+			algoritmo = argv[3];
+		}catch (Exception e) {
+			System.out.println("java br.ufpb.ci.so.p20132.WebServer porta numero-threads tamanho-buffer alg-escalonamento");
+			System.exit(1);
+		}
+		
+		WebServer servidor = new WebServer(porta, nthreads, bufferSize, algoritmo);		
+		
+		System.out.println( "Servidor no ar. Aguardando requisi√ß√µes.");
 		
 		servidor.run();
 		

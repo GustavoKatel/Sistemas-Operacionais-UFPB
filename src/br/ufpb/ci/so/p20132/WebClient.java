@@ -31,7 +31,7 @@ public class WebClient {
 		
 		
 		
-		//Enviando requisição do tipo GET
+		//Enviando requisi√ß√£o do tipo GET
 		ps.println("GET /resources/2013-2/test" + id + ".txt HTTP/1.0\r\n");
 		while((str=reader.readLine())!=null) {
 			System.out.println(str);
@@ -49,7 +49,7 @@ public class WebClient {
 		BufferedReader reader=new BufferedReader(new InputStreamReader(is));
 		String str="";	
 		
-		//Enviando requisição do tipo CGI
+		//Enviando requisi√ß√£o do tipo CGI
 		//ps.println("CGI br.ufpb.ci.so.p20132.HelloWorld HTTP/1.0\r\n");
 		
 		ps.println("CGI br.ufpb.ci.so.p20132.SimpleSort HTTP/1.0\r\n");
@@ -63,8 +63,8 @@ public class WebClient {
 	
 
 	/**
-	 * Método para testar a funcionalidade do servidor
-	 * Envia repetidamente um conjunto alternado de requisições GET e CGI e imprime o resultado na saída padrão.
+	 * M√©todo para testar a funcionalidade do servidor
+	 * Envia repetidamente um conjunto alternado de requisi√ß√µes GET e CGI e imprime o resultado na sa√≠da padr√£o.
 	 */
 	public void run() {
 		
