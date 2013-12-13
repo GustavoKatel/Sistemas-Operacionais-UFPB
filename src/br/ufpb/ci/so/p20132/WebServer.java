@@ -1,10 +1,17 @@
 package br.ufpb.ci.so.p20132;
 
-import java.io.*;
+import java.io.*; 
 import java.net.*;
-import java.util.StringTokenizer;
+import java.util.Date;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+
+import br.ufpb.ci.so.p20132.bufferscale.Buffer;
+import br.ufpb.ci.so.p20132.bufferscale.BufferFifo;
+import br.ufpb.ci.so.p20132.bufferscale.BufferPCGI;
+import br.ufpb.ci.so.p20132.bufferscale.BufferPGET;
+import br.ufpb.ci.so.p20132.bufferscale.BufferRandom;
+import br.ufpb.ci.so.p20132.bufferscale.BufferSJF;
 
 /**
  * Um servidor Web simples porém totalmente funcional.
@@ -18,21 +25,22 @@ public class WebServer {
 	
 	private ServerSocket socketEscuta;
 	
-	private static int numeroRequisicao = 0;
-	
 	private ExecutorService pool;
 
-	private int nthreads, porta, bufferSize;
-	private String algoritmo;
+	private int nthreads, porta;
 	
-	public WebServer( int porta, int nthreads, int bufferSize, String algoritmo) throws Exception {
+	public static long start_time = 0;
+	
+	public WebServer( int porta, int nthreads) throws Exception {
 			
 		this.porta = porta;
 		this.nthreads = nthreads;
-		this.bufferSize = bufferSize;
-		this.algoritmo = algoritmo;
 		
 		socketEscuta = new ServerSocket(this.porta);
+		
+		start_time = System.currentTimeMillis();
+		
+		System.out.println("[Servidor] Início em "+ new Date(start_time));
 		
 		pool = Executors.newFixedThreadPool(this.nthreads);
 		
@@ -53,77 +61,15 @@ public class WebServer {
 	
 	private void processaRequisicao( Socket reqSocket) throws IOException {
 		
-		Descritor d = new Descritor(reqSocket);
-		// adiciona d ao buffer
-			
-		BufferedReader doCliente = new BufferedReader(new InputStreamReader( reqSocket.getInputStream()));
-		DataOutputStream paraCliente = new DataOutputStream( reqSocket.getOutputStream());
-		String requisicao = doCliente.readLine();
-		
-		
-		String req = new String("Requisicao numero [" + numeroRequisicao++ + "] = " + "\"" + requisicao + "\"");
-		System.out.println( req );
-		
-		StringTokenizer st = new StringTokenizer(requisicao);
-		String tipo = st.nextToken();
-		byte[] bytes = null;
-		
-		
-		if(tipo.equals("GET")) {
-			
-			try {
-			
-				File arquivo = new File(st.nextToken().substring(1));
-	
-				FileInputStream leitor = new FileInputStream (arquivo);
-				bytes = new byte[(int)arquivo.length()];
-				leitor.read(bytes);
-				leitor.close();
-			} catch( IOException e ) {
-				bytes = e.getMessage().getBytes();	
-			}
-		} else if( tipo.equals("CGI")) {
-			
-			Process p = Runtime.getRuntime().exec("java -classpath bin " + st.nextToken());
-			BufferedReader b = new BufferedReader( new InputStreamReader( p.getInputStream()));
-			
-			StringBuffer sb = new StringBuffer();
-			String l;
-			while((l = b.readLine())!= null) {
-					sb.append(l);
-					sb.append("\n");
-			}
-			
-			bytes = sb.toString().getBytes();
-			b.close();
+		Descritor d = new Descritor(reqSocket, // socket 
+				System.currentTimeMillis()-start_time // delta a partir do início do servidor
+				);
+		d.setTotalRequisicoesAgendadas(Buffer.getInstance().getTotalRequisicoesAgendadas(d));
+		try {
+			Buffer.getInstance().addDescritor(d);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
-		
-			
-		paraCliente.writeBytes("HTTP/1.0 200 Document Follows\r\n");
-		paraCliente.writeBytes("Content-Length " + bytes.length + "\r\n");
-			
-			
-		paraCliente.writeBytes("Content-Length " + bytes.length + "\r\n");
-			
-		//Retorno das estatísticas da requisição
-		paraCliente.writeBytes("id-requisicao " + 1 + "\r\n");
-		paraCliente.writeBytes("tempo-chegada-requisicao " + 2 + "\r\n");
-		paraCliente.writeBytes("cont-requisicao-agendada " + 3 + "\r\n");
-		paraCliente.writeBytes("tempo-agendamento-requisicao " + 4  + "\r\n");
-		paraCliente.writeBytes("cont-requisicao-concluida " + 5  + "\r\n");
-		paraCliente.writeBytes("tempo-requisicao-concluida " + 6  + "\r\n");
-		paraCliente.writeBytes("idade-requisicao " + 7 + "\r\n");
-		paraCliente.writeBytes("tipo-requisicao " + tipo  + "\r\n");
-			
-		//Retorno das estatísticas do thread
-		paraCliente.writeBytes("ida-thread " + 8 + "\r\n");
-		paraCliente.writeBytes("cont-thread " + 9 + "\r\n");
-			
-		paraCliente.writeBytes("\r\n\n");
-		
-		paraCliente.write(bytes, 0, bytes.length);
-		
-		reqSocket.close();
 		
 	}
 	
@@ -151,7 +97,29 @@ public class WebServer {
 			System.exit(1);
 		}
 		
-		WebServer servidor = new WebServer(porta, nthreads, bufferSize, algoritmo);		
+		switch(algoritmo)
+		{
+			case "fifo":
+				Buffer.init(new BufferFifo(bufferSize));
+				break;
+			case "pget":
+				Buffer.init(new BufferPGET(bufferSize));
+				break;
+			case "pcgi":
+				Buffer.init(new BufferPCGI(bufferSize));
+				break;
+			case "random":
+				Buffer.init(new BufferRandom(bufferSize));
+				break;
+			case "sjf":
+				Buffer.init(new BufferSJF(bufferSize));
+				break;
+			default:
+				System.out.println("Algorítimo não reconhecido!");
+				System.exit(1);
+		}
+		
+		WebServer servidor = new WebServer(porta, nthreads);		
 		
 		System.out.println( "Servidor no ar. Aguardando requisições.");
 		

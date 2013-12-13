@@ -18,7 +18,7 @@ public class WebClient {
 	}
 	
 	
-	private void sendGET() throws Exception {
+	public void sendGET() throws Exception {
 		
 		Socket servidor = new Socket("localhost",porta);
 		
@@ -68,7 +68,8 @@ public class WebClient {
 	 */
 	public void run() {
 		
-		while (true) {
+		int count=3;
+		while (count-->0) {
 			
 			try {
 				Thread.sleep(1000);
@@ -92,10 +93,13 @@ public class WebClient {
 		
 	}
 	
-	public static void main( String args[]) throws UnknownHostException, IOException {
+	public static void main( String args[]) throws Exception {
 		
-		WebClient client = new WebClient(6789);
-		client.run();
+		WebClient client = new WebClient(5100);
+//		client.run();
+		client.sendGET();
+		client.sendGET();
+//		client.sendCGI();
 		
 	}
 	
