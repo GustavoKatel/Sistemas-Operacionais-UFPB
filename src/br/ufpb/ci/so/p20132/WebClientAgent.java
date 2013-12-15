@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.Socket;
+import java.util.Random;
 
 public class WebClientAgent extends Thread {
 
@@ -44,7 +45,7 @@ public class WebClientAgent extends Thread {
 		
 		Socket servidor = new Socket(host,porta);
 		
-		int id = (int) (Math.random() * 7);
+		int id = (new Random()).nextInt(4);
 			
 		PrintStream ps = new PrintStream(servidor.getOutputStream());
 		InputStream is = servidor.getInputStream();
@@ -53,7 +54,7 @@ public class WebClientAgent extends Thread {
 		
 		
 		//Enviando requisição do tipo GET
-		ps.println("GET /resources/2013-2/test" + id + ".txt HTTP/1.0\r\n");
+		ps.println("GET resources/2013-2/test" + id + ".txt HTTP/1.0\r\n");
 		
 		enviado=true;
 		notify();

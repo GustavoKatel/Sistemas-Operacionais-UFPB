@@ -87,19 +87,21 @@ public abstract class Buffer {
 	
 	public void showBuffer()
 	{
+		int tam[] = new int[total];
 		for(int i=0;i<total;i++)
 		{
-			System.out.print("+--------+");
+			String str = "|  "+buff[i].getTipo()+":"+buff[i].getId()+":"+buff[i].getTempoChegada()+":"+buff[i].getArquivoTamanho();
+			System.out.print(str+"|");
+			tam[i] = str.length();
 		}
 		System.out.println("");
 		for(int i=0;i<total;i++)
 		{
-			System.out.print("|  "+buff[i].getTipo()+":"+buff[i].getTempoChegada()+" |");
-		}
-		System.out.println("");
-		for(int i=0;i<total;i++)
-		{
-			System.out.print("+--------+");
+			for(int j=0;j<tam[i]+1;j++)
+			{
+				System.out.print("-");
+			}
+			System.out.print("+");
 		}
 		System.out.println("");
 	}

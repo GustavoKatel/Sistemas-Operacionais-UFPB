@@ -9,7 +9,7 @@ public class BufferSJF extends Buffer {
 	}
 
 	@Override
-	public Descritor getNext() throws Exception {
+	public synchronized Descritor getNext() throws Exception {
 		while(total==0)
 			wait();
 		
@@ -17,6 +17,7 @@ public class BufferSJF extends Buffer {
 		
 		int i, min_index = 0;
 		long min = buff[0].getArquivoTamanho();
+		d = buff[0];
 		// pega o arquivo menor
 		for(i=1;i<total;i++)
 		{

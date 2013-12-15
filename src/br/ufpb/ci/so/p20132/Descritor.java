@@ -9,6 +9,8 @@ import java.net.Socket;
 
 public class Descritor {
 
+	private static int COMMON_ID = 0;
+	
 	private Socket socket;
 	private String requisicao;
 	private String tipo;
@@ -20,6 +22,8 @@ public class Descritor {
 	
 	private long arquivo_tamanho;
 	
+	private int id;
+	
 	public Descritor(Socket socket, long tempo_chegada)
 	{
 		this.socket = socket;
@@ -30,6 +34,8 @@ public class Descritor {
 		//
 		File f = new File(arquivo);
 		arquivo_tamanho = f.length();
+		
+		this.id = COMMON_ID++;
 	}
 	
 	private void processaTipo()
@@ -52,6 +58,11 @@ public class Descritor {
 		arquivo = str.substring(4, str.lastIndexOf("HTTP/1.0"));
 //		arquivo = arquivo.replaceAll(tipo, "");
 		arquivo = arquivo.trim();
+	}
+	
+	public int getId()
+	{
+		return this.id;
 	}
 	
 	public Socket getSocket()

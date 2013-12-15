@@ -53,14 +53,35 @@ Testes
 
 Para fins de teste, retardamos o tempo de leitura do buffer.
 
-Caso 1:
+Obs.: Com apenas uma thread no servidor, será atendida apenas uma requisição por vez.
+
+Test1 (FIFO):
+--------------
 Parâmetros servidor: 
-5100 5 10 fifo
+5100 1 5 fifo
 
 Parâmetros cliente:
-localhost 5100 1 conc
+localhost 5100 4 conc
 
-Obs.: Com apenas uma thread no cliente, serão feitas 1 requisção por vez.
+Notação: TIPO:TEMPO_DE_CHEGADA
+
+Arquivos: 
+test1_out.txt  -> Saída do cliente.
+test1_buff.txt -> Representação do buffer.
 
 
+Test2 (RANDOM):
+---------------
+Parâmetros servidor: 
+5100 1 5 random
 
+Parâmetros cliente:
+localhost 5100 4 conc
+
+Notação: TIPO:ID_REQUISIÇÃO:TEMPO_DE_CHEGADA
+
+Arquivos: 
+test2_out.txt  -> Saída do cliente.
+test2_buff.txt -> Representação do buffer.
+
+Observe que a requisição de ID 4 apenas foi concluída no tempo 40078 levando em conta que ela chegou ao servidor em 7745. Enquanto que a requisição de ID 12 chegou aos 22397 e concluída em 33746. Vemos que ela mesmo chegando depois foi concluída em menos tempo, dando base ao algorítmo aleatório.

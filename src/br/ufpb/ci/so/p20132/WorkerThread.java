@@ -56,7 +56,7 @@ public class WorkerThread extends Thread {
 		
 		
 		String req = new String("[th: " + id_thread + "] Requisicao numero [" + Buffer.getInstance().getTotalRequisicoesAtendidas() + "] = " + "\"" + d.getRequisicao() + "\"");
-		System.out.println( req );
+//		System.out.println( req );
 		
 //		StringTokenizer st = new StringTokenizer(requisicao);
 		String tipo = d.getTipo(); // st.nextToken();
@@ -100,7 +100,7 @@ public class WorkerThread extends Thread {
 		paraCliente.writeBytes("Content-Length " + bytes.length + "\r\n");
 			
 		//Retorno das estatísticas da requisição
-		paraCliente.writeBytes("id-requisicao " + Buffer.getInstance().getTotalRequisicoesAtendidas() + "\r\n");
+		paraCliente.writeBytes("id-requisicao " + d.getId() + "\r\n");
 		paraCliente.writeBytes("tempo-chegada-requisicao " + d.getTempoChegada() + "\r\n");
 		paraCliente.writeBytes("cont-requisicao-agendada " + d.getTotalRequisicoesAgendadas() + "\r\n");
 		paraCliente.writeBytes("tempo-agendamento-requisicao " + d.getTempoAgendamento()  + "\r\n");
