@@ -49,8 +49,8 @@ public class Descritor {
 		}
 		requisicao = str;
 		tipo = str.substring(0, 3);
-		arquivo = str.substring(0, str.lastIndexOf("HTTP/1.0"));
-		arquivo = arquivo.replaceAll(tipo, "");
+		arquivo = str.substring(4, str.lastIndexOf("HTTP/1.0"));
+//		arquivo = arquivo.replaceAll(tipo, "");
 		arquivo = arquivo.trim();
 	}
 	

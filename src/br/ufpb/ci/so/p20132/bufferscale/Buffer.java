@@ -44,6 +44,7 @@ public abstract class Buffer {
 	public synchronized Descritor getNext() throws Exception
 	{
 		totalRequisicoesAtendidas++;
+		Thread.sleep(1000);
 		return null;
 	}
 	
@@ -55,6 +56,8 @@ public abstract class Buffer {
 		buff[total++] = d;
 		
 		d.setTempoAgendamento( System.currentTimeMillis() - WebServer.start_time );
+	
+		showBuffer();
 		
 		notifyAll();
 		
@@ -80,6 +83,25 @@ public abstract class Buffer {
 	public int getTotalConcluida()
 	{
 		return this.totalConcluidas;
+	}
+	
+	public void showBuffer()
+	{
+		for(int i=0;i<total;i++)
+		{
+			System.out.print("+--------+");
+		}
+		System.out.println("");
+		for(int i=0;i<total;i++)
+		{
+			System.out.print("|  "+buff[i].getTipo()+":"+buff[i].getTempoChegada()+" |");
+		}
+		System.out.println("");
+		for(int i=0;i<total;i++)
+		{
+			System.out.print("+--------+");
+		}
+		System.out.println("");
 	}
 	
 }

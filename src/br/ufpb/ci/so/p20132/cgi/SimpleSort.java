@@ -1,4 +1,4 @@
-package br.ufpb.ci.so.p20132;
+package br.ufpb.ci.so.p20132.cgi;
 
 
 /**

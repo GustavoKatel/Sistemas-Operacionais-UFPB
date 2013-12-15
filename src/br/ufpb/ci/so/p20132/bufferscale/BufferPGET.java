@@ -45,11 +45,13 @@ public class BufferPGET extends Buffer {
 		total--;
 		notifyAll();
 		
+		showBuffer();
+		
 		return d;
 	}
 	
 	@Override
-	public int getTotalRequisicoesAgendadas(Descritor d) {
+	public synchronized int getTotalRequisicoesAgendadas(Descritor d) {
 		String tipo = d.getTipo();
 		int contagem = 0;
 		for(int i=0;i<total;i++)

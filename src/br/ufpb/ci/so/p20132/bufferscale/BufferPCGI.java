@@ -9,7 +9,7 @@ public class BufferPCGI extends Buffer {
 	}
 
 	@Override
-	public Descritor getNext() throws Exception {
+	public synchronized Descritor getNext() throws Exception {
 		while(total==0)
 			wait();
 		
@@ -44,11 +44,13 @@ public class BufferPCGI extends Buffer {
 		total--;
 		notifyAll();
 		
+		showBuffer();
+		
 		return d;
 	}
 
 	@Override
-	public int getTotalRequisicoesAgendadas(Descritor d) {
+	public synchronized int getTotalRequisicoesAgendadas(Descritor d) {
 		String tipo = d.getTipo();
 		int contagem = 0;
 		for(int i=0;i<total;i++)

@@ -1,93 +1,76 @@
 package br.ufpb.ci.so.p20132;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
-import java.io.InputStream;
-import java.net.Socket;
-import java.net.UnknownHostException;
+import java.util.Random;
 
+import com.sun.swing.internal.plaf.synth.resources.synth;
 
-public class WebClient {
+public class WebClient extends Thread {
 
+	// Escopo estático
+	private static int nfinalizados = 0;
+	
+	public static synchronized void addFinalizado()
+	{
+		nfinalizados++;
+	}
+	
+	public static synchronized int getFinalizados()
+	{
+		return nfinalizados;
+	}
+	
+	// Escopo dinâmico
+	
+	private String host;
 	private int porta;
-	
-	public WebClient(int porta) {
-		this.porta = porta;
-	}
-	
-	
-	public void sendGET() throws Exception {
-		
-		Socket servidor = new Socket("localhost",porta);
-		
-		int id = (int) (Math.random() * 7);
-			
-		PrintStream ps = new PrintStream(servidor.getOutputStream());
-		InputStream is = servidor.getInputStream();
-		BufferedReader reader=new BufferedReader(new InputStreamReader(is));
-		String str="";
-		
-		
-		
-		//Enviando requisição do tipo GET
-		ps.println("GET /resources/2013-2/test" + id + ".txt HTTP/1.0\r\n");
-		while((str=reader.readLine())!=null) {
-			System.out.println(str);
-		}
-		
-		servidor.close();
-		
-	}
-	private void sendCGI() throws Exception {
-		
-		Socket servidor = new Socket("localhost",porta);
-			
-		PrintStream ps = new PrintStream(servidor.getOutputStream());
-		InputStream is = servidor.getInputStream();
-		BufferedReader reader=new BufferedReader(new InputStreamReader(is));
-		String str="";	
-		
-		//Enviando requisição do tipo CGI
-		//ps.println("CGI br.ufpb.ci.so.p20132.HelloWorld HTTP/1.0\r\n");
-		
-		ps.println("CGI br.ufpb.ci.so.p20132.SimpleSort HTTP/1.0\r\n");
-		while((str=reader.readLine())!=null) {
-			System.out.println(str);
-		}
-		
-		servidor.close();
-	}
-	
-	
+	private int max_req;
+	private String algo;
+	private WebClient anterior;
 
-	/**
-	 * Método para testar a funcionalidade do servidor
-	 * Envia repetidamente um conjunto alternado de requisições GET e CGI e imprime o resultado na saída padrão.
-	 */
-	public void run() {
-		
-		int count=3;
-		while (count-->0) {
+	private boolean requisicaoDone = false;
+	
+	public WebClient(String host, int porta, int max_req, String algo, WebClient anterior) {
+		this.host = host;
+		this.porta = porta;
+		this.max_req = max_req;
+		this.algo = algo;
+		this.anterior = anterior;
+	}
+	
+	public synchronized void waitRequisicao() throws InterruptedException
+	{
+		while(requisicaoDone==false)
+			wait();
+	}
+	
+	public synchronized void run() {
+
+		WebClientAgent agent;
+		String tipo;
+		Random r = new Random();
+		while(true) {
 			
 			try {
-				Thread.sleep(1000);
-				sendGET();
+				
+				for(int i=0;i<max_req;i++)
+				{
+					tipo = ( r.nextBoolean() ? "CGI" : "GET" );
+					agent = new WebClientAgent(host, porta, tipo);
+					agent.start();
+					if(algo.equals("fifo"))
+					{
+						agent.waitEnviado();
+					}
+					if(anterior!=null)
+						anterior.waitRequisicao();
+					requisicaoDone=true;
+					notifyAll();
+				}				
+				
 			} catch (Exception e1) {
 				
 				e1.printStackTrace();
 			}
-			
-			try {
-				Thread.sleep(1000);
-				sendCGI();
-			} catch (Exception e1) {
-				
-				e1.printStackTrace();
-			}
-			
-			
 			
 		}
 		
@@ -95,11 +78,21 @@ public class WebClient {
 	
 	public static void main( String args[]) throws Exception {
 		
-		WebClient client = new WebClient(5100);
-//		client.run();
-		client.sendGET();
-		client.sendGET();
-//		client.sendCGI();
+		String host = args[0];
+		int port = Integer.parseInt(args[1]);
+		int n = Integer.parseInt(args[2]);
+		String algoritmo = args[3];
+		
+		WebClient list[] = new WebClient[n];
+		for(int i=0;i<n;i++)
+		{
+			list[i] = new WebClient(host, port, n, algoritmo, (i==0 ? null : list[i-1]) );
+			list[i].start();
+		}
+		for(int i=0;i<n;i++)
+		{
+			list[i].join();
+		}		
 		
 	}
 	

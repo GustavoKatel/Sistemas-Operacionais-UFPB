@@ -26,11 +26,13 @@ public class BufferFifo extends Buffer {
 		
 		notifyAll();
 		
+		showBuffer();
+		
 		return d;
 	}
 
 	@Override
-	public int getTotalRequisicoesAgendadas(Descritor d) {
+	public synchronized int getTotalRequisicoesAgendadas(Descritor d) {
 		return total;
 	}
 	

@@ -43,11 +43,13 @@ public class BufferSJF extends Buffer {
 		total--;
 		notifyAll();
 		
+		showBuffer();
+		
 		return d;
 	}
 
 	@Override
-	public int getTotalRequisicoesAgendadas(Descritor d) {
+	public synchronized int getTotalRequisicoesAgendadas(Descritor d) {
 		long tamanho = d.getArquivoTamanho();
 		int contagem=0;
 		

@@ -11,7 +11,7 @@ public class BufferRandom extends Buffer {
 	}
 
 	@Override
-	public Descritor getNext() throws Exception {
+	public synchronized Descritor getNext() throws Exception {
 		while(total==0)
 			wait();
 		
@@ -33,6 +33,8 @@ public class BufferRandom extends Buffer {
 		
 		total--;
 		notifyAll();
+		
+		showBuffer();
 		
 		return d;
 	}

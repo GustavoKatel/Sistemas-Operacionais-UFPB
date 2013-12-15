@@ -55,7 +55,7 @@ public class WorkerThread extends Thread {
 //		String requisicao = doCliente.readLine();
 		
 		
-		String req = new String("Requisicao numero [" + Buffer.getInstance().getTotalRequisicoesAtendidas() + "] = " + "\"" + d.getRequisicao() + "\"");
+		String req = new String("[th: " + id_thread + "] Requisicao numero [" + Buffer.getInstance().getTotalRequisicoesAtendidas() + "] = " + "\"" + d.getRequisicao() + "\"");
 		System.out.println( req );
 		
 //		StringTokenizer st = new StringTokenizer(requisicao);
