@@ -45,7 +45,7 @@ public class WebClientAgent extends Thread {
 		
 		Socket servidor = new Socket(host,porta);
 		
-		int id = (new Random()).nextInt(4);
+		int id = (new Random()).nextInt(8);
 			
 		PrintStream ps = new PrintStream(servidor.getOutputStream());
 		InputStream is = servidor.getInputStream();
