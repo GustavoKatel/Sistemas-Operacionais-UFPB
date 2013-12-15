@@ -1,0 +1,224 @@
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 3
+tempo-chegada-requisicao 15008
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 15009
+cont-requisicao-concluida 2
+tempo-requisicao-concluida 21322
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 2
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 4
+tempo-chegada-requisicao 15010
+cont-requisicao-agendada 2
+tempo-agendamento-requisicao 15010
+cont-requisicao-concluida 3
+tempo-requisicao-concluida 24477
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 3
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 5
+tempo-chegada-requisicao 15011
+cont-requisicao-agendada 3
+tempo-agendamento-requisicao 15012
+cont-requisicao-concluida 4
+tempo-requisicao-concluida 27638
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 4
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 6
+tempo-chegada-requisicao 15013
+cont-requisicao-agendada 4
+tempo-agendamento-requisicao 15014
+cont-requisicao-concluida 5
+tempo-requisicao-concluida 30799
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 5
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 55
+Content-Length 55
+id-requisicao 7
+tempo-chegada-requisicao 15017
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 18173
+cont-requisicao-concluida 6
+tempo-requisicao-concluida 31803
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 6
+
+
+/resources/2013-2/test3.txt (No such file or directory)
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 8
+tempo-chegada-requisicao 18175
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 19178
+cont-requisicao-concluida 7
+tempo-requisicao-concluida 34988
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 7
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 55
+Content-Length 55
+id-requisicao 9
+tempo-chegada-requisicao 19179
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 22324
+cont-requisicao-concluida 8
+tempo-requisicao-concluida 35992
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 8
+
+
+/resources/2013-2/test1.txt (No such file or directory)
+HTTP/1.0 200 Document Follows
+Content-Length 55
+Content-Length 55
+id-requisicao 10
+tempo-chegada-requisicao 22324
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 25478
+cont-requisicao-concluida 9
+tempo-requisicao-concluida 36994
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 9
+
+
+/resources/2013-2/test0.txt (No such file or directory)
+HTTP/1.0 200 Document Follows
+Content-Length 55
+Content-Length 55
+id-requisicao 11
+tempo-chegada-requisicao 25479
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 28640
+cont-requisicao-concluida 10
+tempo-requisicao-concluida 37997
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 10
+
+
+/resources/2013-2/test0.txt (No such file or directory)
+HTTP/1.0 200 Document Follows
+Content-Length 55
+Content-Length 55
+id-requisicao 12
+tempo-chegada-requisicao 28641
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 31800
+cont-requisicao-concluida 11
+tempo-requisicao-concluida 39000
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 11
+
+
+/resources/2013-2/test1.txt (No such file or directory)
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 13
+tempo-chegada-requisicao 31801
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 32804
+cont-requisicao-concluida 12
+tempo-requisicao-concluida 42139
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 12
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 55
+Content-Length 55
+id-requisicao 14
+tempo-chegada-requisicao 32805
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 35989
+cont-requisicao-concluida 13
+tempo-requisicao-concluida 43142
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 13
+
+
+/resources/2013-2/test4.txt (No such file or directory)
+HTTP/1.0 200 Document Follows
+Content-Length 55
+Content-Length 55
+id-requisicao 15
+tempo-chegada-requisicao 35990
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 36993
+cont-requisicao-concluida 14
+tempo-requisicao-concluida 44144
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 14
+
+
+/resources/2013-2/test5.txt (No such file or directory)
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 16
+tempo-chegada-requisicao 36993
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 37995
+cont-requisicao-concluida 15
+tempo-requisicao-concluida 47302
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 15
+
+
+Long Hello World!

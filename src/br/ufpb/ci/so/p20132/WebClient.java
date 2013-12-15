@@ -48,7 +48,7 @@ public class WebClient extends Thread {
 		WebClientAgent agent;
 		String tipo;
 		Random r = new Random();
-		while(true) {
+		//while(true) {
 			
 			try {
 				
@@ -72,7 +72,7 @@ public class WebClient extends Thread {
 				e1.printStackTrace();
 			}
 			
-		}
+		//}
 		
 	}
 	
