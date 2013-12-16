@@ -20,9 +20,8 @@ public class BufferRandom extends Buffer {
 		int i = (new Random()).nextInt(total);
 		d = buff[i];
 		
-		for(int j=0;j<total;j++)
+		for(int j=0;j<i;j++)
 		{
-			if(j==i) continue;
 			buff[j].addIdade();
 		}
 		
@@ -34,7 +33,7 @@ public class BufferRandom extends Buffer {
 		total--;
 		notifyAll();
 		
-		showBuffer();
+		showBuffer("rem");
 		
 		return d;
 	}

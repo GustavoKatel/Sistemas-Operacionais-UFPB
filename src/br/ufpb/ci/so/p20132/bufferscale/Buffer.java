@@ -57,7 +57,7 @@ public abstract class Buffer {
 		
 		d.setTempoAgendamento( System.currentTimeMillis() - WebServer.start_time );
 	
-		showBuffer();
+		showBuffer("add");
 		
 		notifyAll();
 		
@@ -85,8 +85,10 @@ public abstract class Buffer {
 		return this.totalConcluidas;
 	}
 	
-	public void showBuffer()
+	public void showBuffer(String tag)
 	{
+		tag = "["+tag+"] ";
+		System.out.print(tag);
 		int tam[] = new int[total];
 		for(int i=0;i<total;i++)
 		{

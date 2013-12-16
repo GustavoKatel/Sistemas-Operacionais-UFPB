@@ -26,7 +26,7 @@ public class BufferFifo extends Buffer {
 		
 		notifyAll();
 		
-		showBuffer();
+		showBuffer("rem");
 		
 		return d;
 	}

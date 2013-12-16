@@ -26,7 +26,11 @@ public class BufferPGET extends Buffer {
 				d = buff[i];
 				break;
 			}
-			buff[i].addIdade();
+		}
+		if(i<total)
+		{
+			for(int j=0;j<i;j++)
+				buff[j].addIdade();
 		}
 		
 		// se não houver GET, pega o primeiro CGI
@@ -45,7 +49,7 @@ public class BufferPGET extends Buffer {
 		total--;
 		notifyAll();
 		
-		showBuffer();
+		showBuffer("rem");
 		
 		return d;
 	}

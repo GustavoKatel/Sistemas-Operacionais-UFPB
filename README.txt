@@ -55,6 +55,10 @@ Para fins de teste, retardamos o tempo de leitura do buffer.
 
 Obs.: Com apenas uma thread no servidor, será atendida apenas uma requisição por vez.
 
+Notação: TIPO:ID_REQUISIÇÃO:TEMPO_DE_CHEGADA:ARQUIVO_TAMANHO
+
+Arquivos com o log de buffer e dos clientes encontram-se na pasta 'tests'
+
 Test1 (FIFO):
 --------------
 Parâmetros servidor: 
@@ -63,12 +67,11 @@ Parâmetros servidor:
 Parâmetros cliente:
 localhost 5100 4 conc
 
-Notação: TIPO:TEMPO_DE_CHEGADA
-
 Arquivos: 
 test1_out.txt  -> Saída do cliente.
 test1_buff.txt -> Representação do buffer.
 
+Pode-se perceber que a primeira requisição atendida é sempre a primeira do buffer (índice 0), caracterizando FIRST-IN/FIRST-OUT.
 
 Test2 (RANDOM):
 ---------------
@@ -78,10 +81,54 @@ Parâmetros servidor:
 Parâmetros cliente:
 localhost 5100 4 conc
 
-Notação: TIPO:ID_REQUISIÇÃO:TEMPO_DE_CHEGADA
-
 Arquivos: 
 test2_out.txt  -> Saída do cliente.
 test2_buff.txt -> Representação do buffer.
 
-Observe que a requisição de ID 4 apenas foi concluída no tempo 40078 levando em conta que ela chegou ao servidor em 7745. Enquanto que a requisição de ID 12 chegou aos 22397 e concluída em 33746. Vemos que ela mesmo chegando depois foi concluída em menos tempo, dando base ao algorítmo aleatório.
+Observe que a requisição de ID 4 apenas foi concluída no tempo 30734 levando em conta que ela chegou ao servidor em 6625. Enquanto que a requisição de ID 11 chegou aos 18112 e concluída em 29727. Vemos que ela, mesmo chegando depois, foi concluída em menos tempo, dando base ao algorítmo aleatório.
+
+Test3 (SJF):
+---------------
+Parâmetros servidor: 
+5100 1 5 sjf
+
+Parâmetros cliente:
+localhost 5100 4 conc
+
+Arquivos: 
+test3_out.txt  -> Saída do cliente.
+test3_buff.txt -> Representação do buffer.
+
+Perceba que a requisição de ID 2 foi a 14ª a ser concluída por ter um arquivo de tamanho maior. 
+Observe também a requisição de ID 15, foi a última a entrar no buffer, no entanto foi a 12ª a ser atendida.
+
+Test4 (PCGI):
+---------------
+Parâmetros servidor: 
+5100 1 5 pcgi
+
+Parâmetros cliente:
+localhost 5100 4 conc
+
+Arquivos: 
+test4_out.txt  -> Saída do cliente.
+test4_buff.txt -> Representação do buffer.
+
+Observe que o primeiro elemento a ser atendido é um GET, apenas pelo fato de que o buffer estava sem requisições do tipo CGI. Isso ocorre também em outros pontos pelo mesmo motivo.
+Observe também que ao final restaram apenas requisições do tipo GET.
+Dando base ao algorítmo PCGI.
+
+Test5 (PGET):
+---------------
+Parâmetros servidor: 
+5100 1 5 pget
+
+Parâmetros cliente:
+localhost 5100 4 conc
+
+Arquivos: 
+test5_out.txt  -> Saída do cliente.
+test5_buff.txt -> Representação do buffer.
+
+É válido afirmar que o funcionamento é o mesmo do PCGI, o que pode ser observado na representação do buffer.
+Este teste em particular gerou mais intercalações com requisições do tipo CGI, pelo simples fato da geração ser aleatória, ocasionando mais momentos de falta de requisições GET.

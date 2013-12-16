@@ -32,7 +32,8 @@ public class WorkerThread extends Thread {
 			try {
 				processaRequisicao();
 			} catch (IOException e) {
-				System.out.println("Erro ao processar requisição!");
+//				System.out.println("Erro ao processar requisição!");
+				e.printStackTrace();
 			}
 			//
 			contador_thread++;
@@ -117,7 +118,7 @@ public class WorkerThread extends Thread {
 		
 		paraCliente.write(bytes, 0, bytes.length);
 		
-		reqSocket.close();
+//		reqSocket.close();
 		
 		Buffer.getInstance().addConcluida();
 	}

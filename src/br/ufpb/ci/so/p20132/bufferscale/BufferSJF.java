@@ -15,28 +15,24 @@ public class BufferSJF extends Buffer {
 		
 		Descritor d = super.getNext();
 		
-		int i, min_index = 0;
-		long min = buff[0].getArquivoTamanho();
-		d = buff[0];
-		// pega o arquivo menor
+		int i=0, min_index=0;
+		
 		for(i=1;i<total;i++)
 		{
-			if(d.getArquivoTamanho() < min)
+			if( buff[i].getArquivoTamanho() < buff[min_index].getArquivoTamanho() )
 			{
-				min = d.getArquivoTamanho();
 				min_index = i;
 			}
 		}
-		
+
 		d = buff[min_index];
 		
-		for(int j=0;j<total;j++)
+		for(int j=0;j<min_index;j++)
 		{
-			if(j==min_index) continue;
 			buff[j].addIdade();
 		}
 		
-		for(int j=i;j<total-1;j++)
+		for(int j=min_index;j<total-1;j++)
 		{
 			buff[j] = buff[j+1];
 		}
@@ -44,7 +40,7 @@ public class BufferSJF extends Buffer {
 		total--;
 		notifyAll();
 		
-		showBuffer();
+		showBuffer("rem");
 		
 		return d;
 	}
