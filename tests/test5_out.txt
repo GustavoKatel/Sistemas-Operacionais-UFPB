@@ -1,139 +1,137 @@
 HTTP/1.0 200 Document Follows
-Content-Length 18
-Content-Length 18
+Content-Length 16
+Content-Length 16
 id-requisicao 0
-tempo-chegada-requisicao 4423
+tempo-chegada-requisicao 7115
 cont-requisicao-agendada 0
-tempo-agendamento-requisicao 4427
+tempo-agendamento-requisicao 7117
 cont-requisicao-concluida 0
-tempo-requisicao-concluida 7598
+tempo-requisicao-concluida 8124
 idade-requisicao 0
-tipo-requisicao CGI
+tipo-requisicao GET
 ida-thread 0
 cont-thread 0
 
 
-Long Hello World!
 HTTP/1.0 200 Document Follows
-Content-Length 18
-Content-Length 18
+Content-Length 16
+Content-Length 16
 id-requisicao 1
-tempo-chegada-requisicao 4428
+tempo-chegada-requisicao 7118
 cont-requisicao-agendada 0
-tempo-agendamento-requisicao 5428
+tempo-agendamento-requisicao 8119
 cont-requisicao-concluida 1
-tempo-requisicao-concluida 10745
+tempo-requisicao-concluida 9130
 idade-requisicao 0
-tipo-requisicao CGI
+tipo-requisicao GET
 ida-thread 0
 cont-thread 1
 
 
-Long Hello World!
 HTTP/1.0 200 Document Follows
-Content-Length 18
-Content-Length 18
+Content-Length 8
+Content-Length 8
 id-requisicao 2
-tempo-chegada-requisicao 5429
+tempo-chegada-requisicao 8120
 cont-requisicao-agendada 1
-tempo-agendamento-requisicao 5430
+tempo-agendamento-requisicao 8120
 cont-requisicao-concluida 2
-tempo-requisicao-concluida 13903
+tempo-requisicao-concluida 10140
 idade-requisicao 0
-tipo-requisicao CGI
+tipo-requisicao GET
 ida-thread 0
 cont-thread 2
 
 
-Long Hello World!
+TESTE 4
 HTTP/1.0 200 Document Follows
-Content-Length 8
-Content-Length 8
+Content-Length 13
+Content-Length 13
 id-requisicao 3
-tempo-chegada-requisicao 5432
+tempo-chegada-requisicao 8122
 cont-requisicao-agendada 2
-tempo-agendamento-requisicao 5433
+tempo-agendamento-requisicao 8122
 cont-requisicao-concluida 3
-tempo-requisicao-concluida 14912
+tempo-requisicao-concluida 11155
 idade-requisicao 0
 tipo-requisicao GET
 ida-thread 0
 cont-thread 3
 
 
-TESTE 4
 HTTP/1.0 200 Document Follows
-Content-Length 2
-Content-Length 2
-id-requisicao 4
-tempo-chegada-requisicao 5437
-cont-requisicao-agendada 3
-tempo-agendamento-requisicao 5437
+Content-Length 8
+Content-Length 8
+id-requisicao 6
+tempo-chegada-requisicao 9133
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 10135
 cont-requisicao-concluida 4
-tempo-requisicao-concluida 15919
+tempo-requisicao-concluida 12160
 idade-requisicao 0
 tipo-requisicao GET
 ida-thread 0
 cont-thread 4
 
 
+TESTE 4
 HTTP/1.0 200 Document Follows
-Content-Length 16
-Content-Length 16
-id-requisicao 5
-tempo-chegada-requisicao 5443
-cont-requisicao-agendada 4
-tempo-agendamento-requisicao 5444
+Content-Length 18
+Content-Length 18
+id-requisicao 4
+tempo-chegada-requisicao 8126
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 9127
 cont-requisicao-concluida 5
-tempo-requisicao-concluida 16927
-idade-requisicao 0
-tipo-requisicao GET
-ida-thread 0
-cont-thread 5
-
-
-HTTP/1.0 200 Document Follows
-Content-Length 18
-Content-Length 18
-id-requisicao 6
-tempo-chegada-requisicao 5454
-cont-requisicao-agendada 5
-tempo-agendamento-requisicao 8603
-cont-requisicao-concluida 6
-tempo-requisicao-concluida 20096
-idade-requisicao 0
+tempo-requisicao-concluida 15321
+idade-requisicao 1
 tipo-requisicao CGI
 ida-thread 0
-cont-thread 6
+cont-thread 5
 
 
 Long Hello World!
 HTTP/1.0 200 Document Follows
 Content-Length 8
 Content-Length 8
-id-requisicao 7
-tempo-chegada-requisicao 8609
-cont-requisicao-agendada 5
-tempo-agendamento-requisicao 11749
+id-requisicao 10
+tempo-chegada-requisicao 12160
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 13163
+cont-requisicao-concluida 6
+tempo-requisicao-concluida 16324
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 6
+
+
+TESTE 4
+HTTP/1.0 200 Document Follows
+Content-Length 2
+Content-Length 2
+id-requisicao 11
+tempo-chegada-requisicao 13169
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 16323
 cont-requisicao-concluida 7
-tempo-requisicao-concluida 21102
+tempo-requisicao-concluida 17330
 idade-requisicao 0
 tipo-requisicao GET
 ida-thread 0
 cont-thread 7
 
 
-TESTE 4
 HTTP/1.0 200 Document Follows
 Content-Length 18
 Content-Length 18
-id-requisicao 8
-tempo-chegada-requisicao 11751
-cont-requisicao-agendada 5
-tempo-agendamento-requisicao 14907
+id-requisicao 5
+tempo-chegada-requisicao 9129
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 9130
 cont-requisicao-concluida 8
-tempo-requisicao-concluida 24261
-idade-requisicao 0
+tempo-requisicao-concluida 20546
+idade-requisicao 3
 tipo-requisicao CGI
 ida-thread 0
 cont-thread 8
@@ -143,13 +141,13 @@ Long Hello World!
 HTTP/1.0 200 Document Follows
 Content-Length 18
 Content-Length 18
-id-requisicao 9
-tempo-chegada-requisicao 14909
-cont-requisicao-agendada 5
-tempo-agendamento-requisicao 15915
+id-requisicao 7
+tempo-chegada-requisicao 10138
+cont-requisicao-agendada 2
+tempo-agendamento-requisicao 10138
 cont-requisicao-concluida 9
-tempo-requisicao-concluida 27402
-idade-requisicao 0
+tempo-requisicao-concluida 23695
+idade-requisicao 2
 tipo-requisicao CGI
 ida-thread 0
 cont-thread 9
@@ -159,13 +157,13 @@ Long Hello World!
 HTTP/1.0 200 Document Follows
 Content-Length 18
 Content-Length 18
-id-requisicao 10
-tempo-chegada-requisicao 15918
-cont-requisicao-agendada 5
-tempo-agendamento-requisicao 16924
+id-requisicao 8
+tempo-chegada-requisicao 10148
+cont-requisicao-agendada 3
+tempo-agendamento-requisicao 11151
 cont-requisicao-concluida 10
-tempo-requisicao-concluida 30569
-idade-requisicao 0
+tempo-requisicao-concluida 26854
+idade-requisicao 2
 tipo-requisicao CGI
 ida-thread 0
 cont-thread 10
@@ -175,13 +173,13 @@ Long Hello World!
 HTTP/1.0 200 Document Follows
 Content-Length 18
 Content-Length 18
-id-requisicao 11
-tempo-chegada-requisicao 16927
+id-requisicao 9
+tempo-chegada-requisicao 11155
 cont-requisicao-agendada 4
-tempo-agendamento-requisicao 17929
+tempo-agendamento-requisicao 12157
 cont-requisicao-concluida 11
-tempo-requisicao-concluida 33729
-idade-requisicao 0
+tempo-requisicao-concluida 30018
+idade-requisicao 2
 tipo-requisicao CGI
 ida-thread 0
 cont-thread 11
@@ -192,11 +190,11 @@ HTTP/1.0 200 Document Follows
 Content-Length 18
 Content-Length 18
 id-requisicao 12
-tempo-chegada-requisicao 17932
-cont-requisicao-agendada 5
-tempo-agendamento-requisicao 21100
+tempo-chegada-requisicao 16326
+cont-requisicao-agendada 4
+tempo-agendamento-requisicao 17328
 cont-requisicao-concluida 12
-tempo-requisicao-concluida 36887
+tempo-requisicao-concluida 33173
 idade-requisicao 0
 tipo-requisicao CGI
 ida-thread 0
@@ -208,11 +206,11 @@ HTTP/1.0 200 Document Follows
 Content-Length 18
 Content-Length 18
 id-requisicao 13
-tempo-chegada-requisicao 21103
+tempo-chegada-requisicao 17331
 cont-requisicao-agendada 4
-tempo-agendamento-requisicao 22106
+tempo-agendamento-requisicao 18333
 cont-requisicao-concluida 13
-tempo-requisicao-concluida 40069
+tempo-requisicao-concluida 36337
 idade-requisicao 0
 tipo-requisicao CGI
 ida-thread 0
@@ -224,11 +222,11 @@ HTTP/1.0 200 Document Follows
 Content-Length 18
 Content-Length 18
 id-requisicao 14
-tempo-chegada-requisicao 22111
+tempo-chegada-requisicao 18335
 cont-requisicao-agendada 5
-tempo-agendamento-requisicao 25263
+tempo-agendamento-requisicao 21550
 cont-requisicao-concluida 14
-tempo-requisicao-concluida 43225
+tempo-requisicao-concluida 39489
 idade-requisicao 0
 tipo-requisicao CGI
 ida-thread 0
@@ -237,16 +235,18 @@ cont-thread 14
 
 Long Hello World!
 HTTP/1.0 200 Document Follows
-Content-Length 2
-Content-Length 2
+Content-Length 18
+Content-Length 18
 id-requisicao 15
-tempo-chegada-requisicao 25267
+tempo-chegada-requisicao 21556
 cont-requisicao-agendada 5
-tempo-agendamento-requisicao 28405
+tempo-agendamento-requisicao 24697
 cont-requisicao-concluida 15
-tempo-requisicao-concluida 44228
+tempo-requisicao-concluida 42647
 idade-requisicao 0
-tipo-requisicao GET
+tipo-requisicao CGI
 ida-thread 0
 cont-thread 15
 
+
+Long Hello World!

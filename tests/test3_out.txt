@@ -1,0 +1,247 @@
+HTTP/1.0 200 Document Follows
+Content-Length 13
+Content-Length 13
+id-requisicao 0
+tempo-chegada-requisicao 4997
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 5001
+cont-requisicao-concluida 0
+tempo-requisicao-concluida 6007
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 0
+
+
+HTTP/1.0 200 Document Follows
+Content-Length 2
+Content-Length 2
+id-requisicao 1
+tempo-chegada-requisicao 5002
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 6003
+cont-requisicao-concluida 1
+tempo-requisicao-concluida 7015
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 1
+
+
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 5
+tempo-chegada-requisicao 7013
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 7013
+cont-requisicao-concluida 2
+tempo-requisicao-concluida 10189
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 2
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 6
+tempo-chegada-requisicao 7015
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 7016
+cont-requisicao-concluida 3
+tempo-requisicao-concluida 13353
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 3
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 7
+tempo-chegada-requisicao 7019
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 8023
+cont-requisicao-concluida 4
+tempo-requisicao-concluida 16546
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 4
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 2
+Content-Length 2
+id-requisicao 3
+tempo-chegada-requisicao 6009
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 7009
+cont-requisicao-concluida 5
+tempo-requisicao-concluida 17555
+idade-requisicao 3
+tipo-requisicao GET
+ida-thread 0
+cont-thread 5
+
+
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 10
+tempo-chegada-requisicao 14358
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 17550
+cont-requisicao-concluida 6
+tempo-requisicao-concluida 20719
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 6
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 2
+Content-Length 2
+id-requisicao 11
+tempo-chegada-requisicao 17553
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 18560
+cont-requisicao-concluida 7
+tempo-requisicao-concluida 21728
+idade-requisicao 0
+tipo-requisicao GET
+ida-thread 0
+cont-thread 7
+
+
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 12
+tempo-chegada-requisicao 18563
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 21722
+cont-requisicao-concluida 8
+tempo-requisicao-concluida 24901
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 8
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 13
+tempo-chegada-requisicao 21725
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 22731
+cont-requisicao-concluida 9
+tempo-requisicao-concluida 28057
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 9
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 8
+Content-Length 8
+id-requisicao 9
+tempo-chegada-requisicao 11194
+cont-requisicao-agendada 2
+tempo-agendamento-requisicao 14356
+cont-requisicao-concluida 10
+tempo-requisicao-concluida 29062
+idade-requisicao 4
+tipo-requisicao GET
+ida-thread 0
+cont-thread 10
+
+
+TESTE 4
+HTTP/1.0 200 Document Follows
+Content-Length 18
+Content-Length 18
+id-requisicao 15
+tempo-chegada-requisicao 25908
+cont-requisicao-agendada 0
+tempo-agendamento-requisicao 29058
+cont-requisicao-concluida 11
+tempo-requisicao-concluida 32227
+idade-requisicao 0
+tipo-requisicao CGI
+ida-thread 0
+cont-thread 11
+
+
+Long Hello World!
+HTTP/1.0 200 Document Follows
+Content-Length 8
+Content-Length 8
+id-requisicao 14
+tempo-chegada-requisicao 22733
+cont-requisicao-agendada 2
+tempo-agendamento-requisicao 25906
+cont-requisicao-concluida 12
+tempo-requisicao-concluida 33230
+idade-requisicao 1
+tipo-requisicao GET
+ida-thread 0
+cont-thread 12
+
+
+TESTE 4
+HTTP/1.0 200 Document Follows
+Content-Length 16
+Content-Length 16
+id-requisicao 2
+tempo-chegada-requisicao 6004
+cont-requisicao-agendada 1
+tempo-agendamento-requisicao 6005
+cont-requisicao-concluida 13
+tempo-requisicao-concluida 34234
+idade-requisicao 11
+tipo-requisicao GET
+ida-thread 0
+cont-thread 13
+
+
+HTTP/1.0 200 Document Follows
+Content-Length 16
+Content-Length 16
+id-requisicao 4
+tempo-chegada-requisicao 7010
+cont-requisicao-agendada 2
+tempo-agendamento-requisicao 7011
+cont-requisicao-concluida 14
+tempo-requisicao-concluida 35238
+idade-requisicao 10
+tipo-requisicao GET
+ida-thread 0
+cont-thread 14
+
+
+HTTP/1.0 200 Document Follows
+Content-Length 16
+Content-Length 16
+id-requisicao 8
+tempo-chegada-requisicao 8025
+cont-requisicao-agendada 5
+tempo-agendamento-requisicao 11191
+cont-requisicao-concluida 15
+tempo-requisicao-concluida 36241
+idade-requisicao 7
+tipo-requisicao GET
+ida-thread 0
+cont-thread 15
